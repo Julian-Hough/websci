@@ -1,0 +1,31 @@
+Name: Julian Hough
+Course: Web Science Systems Development
+Assignment: Lab 2 - Weather App
+
+Notes:
+	
+	For layout of the website, a Bootstrap theme was found that was intended as a stylish portfolio
+	however since it had a beautiful view of a city it seemed fitting for this lab. Bootstrap css
+	classes were utilized for mobile and desktop view and made it seem innovative and nicer to the 
+	eyes. I had found a series of weather icons that are used in the weather feed as seen on the website.
+	
+	AJAX get requests were used to pull data from openweathermap and parsed to display relevant data.
+	Special helper functions were utilized to get values to common units that are used daily. For the
+	five day forecast data, the Date of each array is checked separate data from each other. Once 
+	a new day is found, the data is reset after output of old day's data. 
+	
+	One problem when loading data if refreshing the page multiple times per second is that the 
+	five day forecast is display on the left side and the current weather on the right side. Besides
+	that and the limit of 600 calls per 10 min, there are no loading of data issues. 
+	
+	Oddly enough, Google Chrome on desktop/laptop works originally with simply pulling the date object
+	from the API to be converted to the JavaScript Date function. However on other browsers and mobile
+	platforms, the Date object is incorrectly converted thus forcing me to alter my code to allow cross
+	browser and device compatibility. 
+
+References:
+
+http://www.w3schools.com/html/html5_geolocation.asp
+http://openweathermap.org/forecast5
+http://api.jquery.com/jquery.getjson/
+http://startbootstrap.com/template-overviews/stylish-portfolio/
