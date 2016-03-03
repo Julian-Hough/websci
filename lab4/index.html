@@ -27,6 +27,7 @@
   <body ng-app='app'>
 	<!-- Container for bootstrap adjustment and angular app -->
     <ul class="container tweetFeed" ng-controller='twitterController'>
+		<h1 id="header">Twitter Feed</h1>
 		<!-- limit tweets to 5 -->
       <li ng-repeat='tweet in feed | limitTo:-5' class="tweetBox" ng-animate="'animate'" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
 		  <!-- extra box for hopefully creative look -->

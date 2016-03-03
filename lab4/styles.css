@@ -37,6 +37,11 @@ footer {
     color: white;  
 }
 
+#header {
+	color: white;
+	text-align: center;
+}
+
 .tweetFeed {
 	padding-top: 25px;
 	padding-bottom: 140px;
