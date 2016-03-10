@@ -1,0 +1,49 @@
+Name: Julian Hough
+Course: Web Science Systems Development
+
+Notes/Documentation:
+
+To start off this lab the twitter streaming api was used from npmjs. More specifically
+their special twitter-stream-api module that was specifically used for the Streaming API.
+Using the special modules like socket.io to communicate between twitter.js and 
+index.html, data can be passed back and forth based on user preference. Path module
+was used to allow external css and js files to be called on in the index.html so as  to
+not create too much clutter in index. 
+
+Fs module was used to read the json file beforehand, store the info into an object,
+and add into it tweets and wrote it back into tweets.json. Sadly this method needs
+tweets.json to exist and have at least [] in it for this application to work. 
+
+Two functions were necessary for this lab since by default it needed to track
+based on location and otherwise based on keywords. They require two different filters
+that cannot be dynamically created unless extra time was given. To make things simple
+however, two functions were created with the same functionality. 
+
+In the index.html the external js file uses form button to push the data via socket
+back to twitter.js to see how many tweets and what to search for. Besides that
+angular was used to read the tweets streamed to make it simple to use. 
+
+To make this work smoothly and without user error, the number of tweets uses a dropdown
+menu that only has numbers so that users cannot abuse it by inputting characters or 
+anything that might do something weird. Although they can only choose between 1-10 tweets
+it seemed unecessary to go beyond 15 as users will have to ultimately scroll down constantly
+when they can just search for more tweets. 
+
+More time would be needed to allow there to stop connections early if a user chooses
+to constantly push Get Tweets. If they request a lot of tweets, but the streaming API
+cannot get many in a short amount of time, then there can be multiple connections made.
+Thus there can be errors such as duplication or Twitter disallowing anymore connections
+to be made. Thus a disclaimer was put in saying that users should wait for tweets before
+pressing the Get Tweets button again.
+
+Should there be an error, the console should print out error messages that explains
+where it originates from and what should be done about it.
+
+References:
+
+https://www.npmjs.com/package/twitter
+https://www.npmjs.com/package/twitter-stream-api
+https://dev.twitter.com/streaming/overview/request-parameters#locations
+http://stackoverflow.com/questions/24596056/angular-binding-not-updating-with-socket-io-broadcast
+https://nodejs.org/api/fs.html
+http://stackoverflow.com/questions/13395742/can-not-get-css-file

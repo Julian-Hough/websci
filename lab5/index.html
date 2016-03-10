@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Twitter Streaming API</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+  </head>
+
+  <body ng-app='app'>
+	<!-- Container for bootstrap adjustment and angular app -->
+    <ul class="container tweetFeed" ng-controller='twitterController'>
+		<h1 id="header">Twitter Feed</h1>
+		<li class="centerThis disclaimer">Disclaimer: Wait for tweets to load before getting more!</li>
+	  <li class="centerThis"><form id="formBox">
+		<input type="text" name="search" id="search" placeholder="Leave blank to search tweets near RPI!" size="30">
+		<select id="count">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5" selected>5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+		<input type="submit" value="Get Tweets">
+	  </form></li>
+	  
+      <li ng-repeat='tweet in feed' class="tweetBox" ng-animate="'animate'" ng-style="{'background-image':'url({{tweet.user.profile_background_image_url}})'}">
+		  <!-- extra box for hopefully creative look -->
+		  <ul class="blackBox">
+			<li><ul class="user">
+				<!-- angularjs data -->
+				<!-- profile image -->
+				<li><img ng-src="{{tweet.user.profile_image_url}}" class="propic" /></li>
+				
+				<li><ul>
+				<!-- user name and screen name -->
+				<li class="name"> {{tweet.user.name}} </li>
+				<li class="screenName"> @{{tweet.user.screen_name}} </li>
+				</ul>
+				</li>
+				
+			</ul></li>
+			<!-- tweet -->
+			<li class="text">{{tweet.text}}</li>
+			<li><ul>
+			<!-- user data of followers and friends -->
+				<li class="followers">{{tweet.user.followers_count}} <img 
+				src="https://www.distilled.net/wp-content/uploads/2012/06/twitter-bird-light-bgs.png" class="icons"/></li>
+				<li class="friends">{{tweet.user.friends_count}} <img 
+				src="https://cdn1.iconfinder.com/data/icons/user-experience/512/friends-512.png" class="icons"/></li></li>
+			</ul></li>
+		  </ul>
+        </li>
+	</ul>
+
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="js/scripts.js"></script>
+	
+	
+  </body>
+</html>
